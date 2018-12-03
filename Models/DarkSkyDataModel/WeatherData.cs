@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WeatherApp.Models.DarkSkyRequest
 {
-    public class WetherRequest
+    public class WeatherRequest
     {
         [JsonProperty("latitude")]
         public double Latitude { get; set; }
