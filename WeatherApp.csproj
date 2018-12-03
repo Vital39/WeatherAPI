@@ -67,6 +67,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="BusinessModels\CurrentForecast.cs" />
+    <Compile Include="BusinessModels\DailyForecast.cs" />
     <Compile Include="BusinessModels\FormattedAddress.cs" />
     <Compile Include="Interfaces\IGeocodingServices.cs" />
     <Compile Include="Models\DarkSkyDataModel\Currently.cs" />
