@@ -67,7 +67,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="BusinessModels\FormattedAddress.cs" />
-    <Compile Include="Interfaces\IGeocodingServices.cs" />
+    <Compile Include="Interfaces\IGeocodingService.cs" />
     <Compile Include="Models\DarkSkyDataModel\Currently.cs" />
     <Compile Include="Models\DarkSkyDataModel\Daily.cs" />
     <Compile Include="Models\DarkSkyDataModel\Datum.cs" />
@@ -79,6 +79,7 @@
     <Compile Include="Models\Geocoding\Location.cs" />
     <Compile Include="Models\Geocoding\Result.cs" />
     <Compile Include="Models\Geocoding\Viewport.cs" />
+    <Compile Include="Services\GoogleGeocodingService.cs" />
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -113,7 +114,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
-    <Folder Include="Services\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
