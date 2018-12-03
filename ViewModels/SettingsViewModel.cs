@@ -9,11 +9,11 @@ namespace WeatherApp.ViewModels
 {
     public class SettingsViewModel
     {
-        private IGeocodingServices geocodingServices;
+        private readonly IGeocodingService geocodingService;
 
-        public SettingsViewModel(IGeocodingServices geocodingServices)
+        public SettingsViewModel(IGeocodingService geocodingService)
         {
-            this.geocodingServices = geocodingServices;
+            this.geocodingService = geocodingService;
         }
     }
 }
