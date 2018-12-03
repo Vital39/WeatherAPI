@@ -7,6 +7,22 @@
         mc:Ignorable="d"
         Title="Settings" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <CheckBox Name="AutoLocationCheckBox" Grid.Row="0" Grid.Column="1"/>
+        <ComboBox Name="CurrentLocationComboBox" Grid.Row="1" Grid.Column="1"/>
+
+        <Button Name="CancleButton" Content="Cancle" Grid.Row="2" Grid.Column="1"/>
+        <Button Name="OkButton" Content="Ok" Grid.Row="2" Grid.Column="2"/>
     </Grid>
 </Window>
