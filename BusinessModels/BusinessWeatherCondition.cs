@@ -22,6 +22,6 @@ namespace WeatherApp.BusinessModels
         public CurrentForecast CurrentForecast { get; set; }
 
         [JsonProperty("daily")]
-        public DailyForecast DailyForecast { get; set; }
+        public WeekForecast WeekForecast { get; set; }
     }
 }
