@@ -3,26 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WeatherApp.Windows"
         mc:Ignorable="d"
         Title="Settings" Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-
-        <CheckBox Name="AutoLocationCheckBox" Grid.Row="0" Grid.Column="1"/>
-        <ComboBox Name="CurrentLocationComboBox" Grid.Row="1" Grid.Column="1"/>
-
-        <Button Name="CancleButton" Content="Cancle" Grid.Row="2" Grid.Column="1"/>
-        <Button Name="OkButton" Content="Ok" Grid.Row="2" Grid.Column="2"/>
-    </Grid>
+    <DockPanel LastChildFill="True">
+        <WrapPanel DockPanel.Dock="Bottom">
+            <Button Name="CancleButton" Content="Cancle"/>
+            <Button Name="OkButton" Content="Ok"/>
+        </WrapPanel>
+        
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" >
+            <CheckBox Name="AutoLocationCheckBox" />
+            <ComboBox Name="CurrentLocationComboBox" Text="Kiev" MinWidth="100"/>
+        </StackPanel>
+    </DockPanel>
 </Window>
