@@ -70,6 +70,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+
     <Compile Include="BusinessModels\BusinessWeatherCondition.cs" />
     <Compile Include="BusinessModels\CurrentForecast.cs" />
     <Compile Include="BusinessModels\DailyForecast.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Models\DarkSkyDataModel\Datum.cs" />
     <Compile Include="Models\DarkSkyDataModel\Flags.cs" />
     <Compile Include="Models\DarkSkyDataModel\Hourly.cs" />
+    <Compile Include="Models\Location.cs" />
     <Compile Include="Models\DarkSkyDataModel\WeatherData.cs" />
     <Compile Include="Models\GoogleGeocoding\AddressComponent.cs" />
     <Compile Include="Models\GoogleGeocoding\Geometry.cs" />
