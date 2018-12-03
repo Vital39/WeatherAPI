@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WeatherApp.BusinessModels
 {
-    class FormattedAddress
+    public class FormattedAddress
     {
         public string CountryName { get; set; }
         public string CityName { get; set; }
