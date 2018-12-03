@@ -10,10 +10,10 @@ namespace WeatherApp.BusinessModels
     public class WeekForecast
     {
         [JsonProperty("summary")]
-        public string summary { get; set; }
+        public string Summary { get; set; }
 
         [JsonProperty("icon")]
-        public string icon { get; set; }
+        public string Icon { get; set; }
 
         [JsonProperty("data")]
         public IList<DailyForecast> WeekForecasts { get; set; }
