@@ -66,6 +66,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Interfaces\IGetLocationServices.cs" />
     <Compile Include="Models\DarkSkyDataModel\Currently.cs" />
     <Compile Include="Models\DarkSkyDataModel\Daily.cs" />
     <Compile Include="Models\DarkSkyDataModel\Datum.cs" />
@@ -108,7 +109,6 @@
   <ItemGroup>
     <Folder Include="BusinessModels\" />
     <Folder Include="Images\" />
-    <Folder Include="Interfaces\" />
     <Folder Include="Services\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
