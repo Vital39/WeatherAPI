@@ -106,10 +106,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BusinessModels\" />
-    <Folder Include="Images\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Services\" />
     <Folder Include="ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Cloudy.png" />
+    <Resource Include="Images\Fog.png" />
+    <Resource Include="Images\PartlyCloudyNight.png" />
+    <Resource Include="Images\Rain.png" />
+    <Resource Include="Images\Snow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
