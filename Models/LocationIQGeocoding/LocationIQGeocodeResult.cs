@@ -5,9 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace WeatherApp.Models.LocationIQGeocoding
 {
-    class LocationIQGeocodeResult
+    public class LocationIQGeocodeResult
     {
         [JsonProperty("place_id")]
         public string PlaceId { get; set; }
@@ -23,7 +24,9 @@ namespace WeatherApp.Models.LocationIQGeocoding
 
         [JsonProperty("type")]
         public string Type { get; set; }
-        
+
+        [JsonProperty("address")]
+        public LocationIQAddressComponents Address { get; set; }
         [JsonProperty("icon")]
         public string Icon { get; set; }
     }

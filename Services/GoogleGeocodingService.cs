@@ -13,7 +13,7 @@ namespace WeatherApp.Services
 {
     class GoogleGeocodingService :IGeocodingService
     {
-        public async Task<IList<FormattedAddress>> GetFormattedAddress(string city_adrress)
+        public async Task<IList<FormattedAddress>> GetFormattedAddressAsync(string city_adrress)
         {
             string requestUri = string.Format("http://maps.googleapis.com/maps/api/geocode/json?address={0}&sensor=false", Uri.EscapeDataString(city_adrress));
             try

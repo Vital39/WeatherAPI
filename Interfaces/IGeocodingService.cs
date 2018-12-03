@@ -8,8 +8,8 @@ using WeatherApp.Models.Geocoding;
 
 namespace WeatherApp.Interfaces
 {
-    interface IGeocodingService
+    public interface IGeocodingService
     {
-         Task<IList<FormattedAddress>> GetFormattedAddress(string city_adrress);
+         Task<IList<FormattedAddress>> GetFormattedAddressAsync(string city_adrress);
     }
 }

@@ -79,8 +79,10 @@
     <Compile Include="Models\GoogleGeocoding\Location.cs" />
     <Compile Include="Models\GoogleGeocoding\Result.cs" />
     <Compile Include="Models\GoogleGeocoding\Viewport.cs" />
+    <Compile Include="Models\LocationIQGeocoding\LocationIQAddressComponents.cs" />
     <Compile Include="Models\LocationIQGeocoding\LocationIQGeocodeResult.cs" />
     <Compile Include="Services\GoogleGeocodingService.cs" />
+    <Compile Include="Services\LocationIQGeocodingService.cs" />
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
