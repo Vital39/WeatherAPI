@@ -133,5 +133,12 @@
     <Folder Include="Images\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Cloudy.png" />
+    <Resource Include="Images\Fog.png" />
+    <Resource Include="Images\PartlyCloudyNight.png" />
+    <Resource Include="Images\Rain.png" />
+    <Resource Include="Images\Snow.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
