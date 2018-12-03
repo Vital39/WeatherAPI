@@ -70,8 +70,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BusinessModels\BusinessWeatherCondition.cs" />
+    <Compile Include="BusinessModels\CurrentForecast.cs" />
+    <Compile Include="BusinessModels\DailyForecast.cs" />
     <Compile Include="BusinessModels\FormattedAddress.cs" />
+    <Compile Include="BusinessModels\WeekForecast.cs" />
     <Compile Include="Interfaces\IGeocodingService.cs" />
+    <Compile Include="Interfaces\IWeatherService.cs" />
     <Compile Include="Models\DarkSkyDataModel\Currently.cs" />
     <Compile Include="Models\DarkSkyDataModel\Daily.cs" />
     <Compile Include="Models\DarkSkyDataModel\Datum.cs" />
