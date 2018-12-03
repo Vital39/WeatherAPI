@@ -72,7 +72,7 @@
     <Compile Include="Models\DarkSkyDataModel\Flags.cs" />
     <Compile Include="Models\DarkSkyDataModel\Hourly.cs" />
     <Compile Include="Models\DarkSkyDataModel\WetherData.cs" />
-    <Compile Include="Models\IpData.cs" />
+    <Compile Include="Models\Location.cs" />
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
