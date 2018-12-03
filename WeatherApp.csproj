@@ -70,6 +70,7 @@
     <Compile Include="BusinessModels\CurrentForecast.cs" />
     <Compile Include="BusinessModels\DailyForecast.cs" />
     <Compile Include="BusinessModels\FormattedAddress.cs" />
+    <Compile Include="BusinessModels\WeekForecast.cs" />
     <Compile Include="Interfaces\IGeocodingServices.cs" />
     <Compile Include="Models\DarkSkyDataModel\Currently.cs" />
     <Compile Include="Models\DarkSkyDataModel\Daily.cs" />
