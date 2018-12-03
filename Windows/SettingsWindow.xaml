@@ -4,14 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Settings" Height="450" Width="800">
+        Title="Settings" Height="350" Width="500">
 
     <DockPanel LastChildFill="True">
-        <WrapPanel DockPanel.Dock="Bottom">
+        <WrapPanel DockPanel.Dock="Bottom" HorizontalAlignment="Center">
             <Button Name="CancleButton" Content="Cancle"/>
             <Button Name="OkButton" Content="Ok"/>
         </WrapPanel>
-        
+
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" >
             <CheckBox Name="AutoLocationCheckBox" />
             <ComboBox Name="CurrentLocationComboBox" Text="Kiev" MinWidth="100"/>
