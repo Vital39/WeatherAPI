@@ -72,6 +72,7 @@
     <Compile Include="BusinessModels\FormattedAddress.cs" />
     <Compile Include="BusinessModels\WeekForecast.cs" />
     <Compile Include="Interfaces\IGeocodingServices.cs" />
+    <Compile Include="Interfaces\IWeatherService.cs" />
     <Compile Include="Models\DarkSkyDataModel\Currently.cs" />
     <Compile Include="Models\DarkSkyDataModel\Daily.cs" />
     <Compile Include="Models\DarkSkyDataModel\Datum.cs" />
