@@ -77,13 +77,7 @@
     <Compile Include="BusinessModels\WeekForecast.cs" />
     <Compile Include="Interfaces\IGeocodingService.cs" />
     <Compile Include="Interfaces\IWeatherService.cs" />
-    <Compile Include="Models\DarkSkyDataModel\Currently.cs" />
-    <Compile Include="Models\DarkSkyDataModel\Daily.cs" />
-    <Compile Include="Models\DarkSkyDataModel\Datum.cs" />
-    <Compile Include="Models\DarkSkyDataModel\Flags.cs" />
-    <Compile Include="Models\DarkSkyDataModel\Hourly.cs" />
     <Compile Include="Models\Location.cs" />
-    <Compile Include="Models\DarkSkyDataModel\WeatherData.cs" />
     <Compile Include="Models\GoogleGeocoding\AddressComponent.cs" />
     <Compile Include="Models\GoogleGeocoding\Geometry.cs" />
     <Compile Include="Models\GoogleGeocoding\Location.cs" />
