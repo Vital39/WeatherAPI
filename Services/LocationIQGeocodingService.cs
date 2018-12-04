@@ -32,13 +32,13 @@ namespace WeatherApp.Services
                 WebClient webClient = new WebClient();
                 string result = await webClient.DownloadStringTaskAsync(requestUri);
                 List<LocationIQGeocodeResult> locationIQGeocodeResults = JsonConvert.DeserializeObject<List<LocationIQGeocodeResult>>(result);
-                List<FormattedAddress> formattedAddresses = (List<FormattedAddress>)locationIQGeocodeResults.Select(r => new FormattedAddress
+                List<FormattedAddress> formattedAddresses = locationIQGeocodeResults.Select(r => new FormattedAddress
                 {
                     CityName = r.Address.City,
                     CountryName =r.Address.Country,
                     Latitude = Double.Parse(r.Lat),
                     Longtitude = Double.Parse(r.Lon) 
-                });
+                }).ToList();
                 return formattedAddresses;
             }
             catch (WebException e)
