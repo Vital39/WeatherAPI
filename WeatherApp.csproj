@@ -59,7 +59,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\SettingsCommand.cs" />
+    <Compile Include="BusinessModels\BusinessDailyForecast.cs" />
     <Compile Include="BusinessModels\BusinessWeatherForecast.cs" />
+    <Compile Include="Services\DarkSkyWeatherService\DarkSkyWeatherService.cs" />
     <Compile Include="Services\DarkSkyWeatherService\MockWeatherService.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="Windows\SettingsWindow.xaml.cs">
@@ -84,7 +86,7 @@
     <Compile Include="Models\Location.cs" />
     <Compile Include="Services\LocationInfo.cs" />
     <Compile Include="Services\UnixFormatter.cs" />
-        <Compile Include="Models\GoogleGeocoding\AddressComponent.cs" />
+    <Compile Include="Models\GoogleGeocoding\AddressComponent.cs" />
     <Compile Include="Models\GoogleGeocoding\Geometry.cs" />
     <Compile Include="Models\GoogleGeocoding\Location.cs" />
     <Compile Include="Models\GoogleGeocoding\Result.cs" />
