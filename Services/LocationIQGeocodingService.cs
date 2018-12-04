@@ -24,21 +24,21 @@ namespace WeatherApp.Services
 
     public class LocationIQGeocodingService : IGeocodingService
     {
-        public async Task<IList<FormattedAddress>> GetFormattedAddressAsync(string city_adrress)
+        public async Task<IList<FormattedAddress>> GetFormattedAddressAsync(string cityAdrress)
         {
-            string requestUri = string.Format("https://eu1.locationiq.com/v1/search.php?key=a43d65b56a1a62&q={0}&format=json&addressdetails=1", Uri.EscapeDataString(city_adrress));
+            string requestUri = string.Format("https://eu1.locationiq.com/v1/search.php?key=a43d65b56a1a62&q={0}&format=json&addressdetails=1", Uri.EscapeDataString(cityAdrress));
             try
             {
                 WebClient webClient = new WebClient();
                 string result = await webClient.DownloadStringTaskAsync(requestUri);
                 List<LocationIQGeocodeResult> locationIQGeocodeResults = JsonConvert.DeserializeObject<List<LocationIQGeocodeResult>>(result);
-                List<FormattedAddress> formattedAddresses = (List<FormattedAddress>)locationIQGeocodeResults.Select(r => new FormattedAddress
+                List<FormattedAddress> formattedAddresses = locationIQGeocodeResults.Select(r => new FormattedAddress
                 {
                     CityName = r.Address.City,
                     CountryName =r.Address.Country,
-                    Latitude = Double.Parse(r.Lat),
-                    Longtitude = Double.Parse(r.Lon) 
-                });
+                    Latitude = r.Lat,
+                    Longtitude = r.Lon
+                }).ToList();
                 return formattedAddresses;
             }
             catch (WebException e)
