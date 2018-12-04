@@ -9,6 +9,6 @@ namespace WeatherApp.Interfaces
 {
     public interface IGetLocationServices
     {
-        Location GetCurrentLocation();
+        Task<Location> GetCurrentLocation();
     }
 }
