@@ -82,7 +82,6 @@
     <Compile Include="Interfaces\IWeatherService.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Services\LocationInfo.cs" />
-    <Compile Include="Services\UnixConverter.cs" />
     <Compile Include="Services\UnixFormatter.cs" />
         <Compile Include="Models\GoogleGeocoding\AddressComponent.cs" />
     <Compile Include="Models\GoogleGeocoding\Geometry.cs" />
