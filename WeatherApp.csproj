@@ -58,6 +58,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
+    <Compile Include="Windows\SettingsWindow.xaml.cs">
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,20 +71,40 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Interfaces\IGetLocationServices.cs" />
+    <Compile Include="BusinessModels\BusinessWeatherCondition.cs" />
+    <Compile Include="BusinessModels\CurrentForecast.cs" />
+    <Compile Include="BusinessModels\DailyForecast.cs" />
+    <Compile Include="BusinessModels\FormattedAddress.cs" />
+    <Compile Include="BusinessModels\WeekForecast.cs" />
+    <Compile Include="Interfaces\IGeocodingService.cs" />
+    <Compile Include="Interfaces\IWeatherService.cs" />
     <Compile Include="Models\DarkSkyDataModel\Currently.cs" />
     <Compile Include="Models\DarkSkyDataModel\Daily.cs" />
     <Compile Include="Models\DarkSkyDataModel\Datum.cs" />
     <Compile Include="Models\DarkSkyDataModel\Flags.cs" />
     <Compile Include="Models\DarkSkyDataModel\Hourly.cs" />
-    <Compile Include="Models\DarkSkyDataModel\WetherData.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Services\LocationInfo.cs" />
     <Compile Include="Services\UnixConverter.cs" />
     <Compile Include="Services\UnixFormatter.cs" />
+    <Compile Include="Models\DarkSkyDataModel\WeatherData.cs" />
+    <Compile Include="Models\GoogleGeocoding\AddressComponent.cs" />
+    <Compile Include="Models\GoogleGeocoding\Geometry.cs" />
+    <Compile Include="Models\GoogleGeocoding\Location.cs" />
+    <Compile Include="Models\GoogleGeocoding\Result.cs" />
+    <Compile Include="Models\GoogleGeocoding\Viewport.cs" />
+    <Compile Include="Models\LocationIQGeocoding\LocationIQAddressComponents.cs" />
+    <Compile Include="Models\LocationIQGeocoding\LocationIQGeocodeResult.cs" />
+    <Compile Include="Services\GoogleGeocodingService.cs" />
+    <Compile Include="Services\LocationIQGeocodingService.cs" />
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Windows\SettingsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -110,9 +134,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BusinessModels\" />
+    <Folder Include="Commands\" />
     <Folder Include="Images\" />
     <Folder Include="ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Cloudy.png" />
+    <Resource Include="Images\Fog.png" />
+    <Resource Include="Images\PartlyCloudyNight.png" />
+    <Resource Include="Images\Rain.png" />
+    <Resource Include="Images\Snow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

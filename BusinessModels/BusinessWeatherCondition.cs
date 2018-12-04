@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WeatherApp.Models.DarkSkyRequest
+namespace WeatherApp.BusinessModels
 {
-    public class WetherRequest
+    public class BusinessWeatherCondition
     {
         [JsonProperty("latitude")]
         public double Latitude { get; set; }
@@ -19,18 +19,9 @@ namespace WeatherApp.Models.DarkSkyRequest
         public string Timezone { get; set; }
 
         [JsonProperty("currently")]
-        public Currently Currently { get; set; }
-
-        [JsonProperty("hourly")]
-        public Hourly Hourly { get; set; }
+        public CurrentForecast CurrentForecast { get; set; }
 
         [JsonProperty("daily")]
-        public Daily Daily { get; set; }
-
-        [JsonProperty("flags")]
-        public Flags Flags { get; set; }
-
-        [JsonProperty("offset")]
-        public int Offset { get; set; }
+        public WeekForecast WeekForecast { get; set; }
     }
 }
