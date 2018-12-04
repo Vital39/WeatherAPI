@@ -12,8 +12,23 @@ namespace WeatherApp.Services.DarkSkyWeatherService
 {
     public class DarkSkyWeatherService : IWeatherService
     {
-        public Task<WeatherForecast> GetWeather()
+        IGetLocationServices locationService = new LocationInfo();
+        public async Task<WeatherForecast> GetWeather()
         {
+            try
+            {
+                var location = await locationService.GetCurrentLocation();
+                string request = $"https://api.darksky.net/forecast/57b882ce9043fd1927f358ed1a0bb905/{location.Latitude},{location.Longitude}";
+                WebClient webClient = new WebClient();
+                string result = await webClient.DownloadStringTaskAsync(request);
+                WeatherForecast weatherForecast = JsonConvert.DeserializeObject<WeatherForecast>(result);
+                return weatherForecast;
+            }
+            catch (WebException)
+            {
+
+                throw;
+            }
             throw new NotImplementedException();
         }
     }
