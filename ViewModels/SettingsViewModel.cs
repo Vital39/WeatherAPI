@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -14,10 +15,10 @@ namespace WeatherApp.ViewModels
     public class SettingsViewModel : INotifyPropertyChanged
     {
         private readonly IGeocodingService geocodingService;
-        private SettingsCommand addressChangeCommand;
-        private FormattedAddress selectedAddress;
         private IList<FormattedAddress> addresses;
         private string text;
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public string Text
         {
@@ -35,39 +36,34 @@ namespace WeatherApp.ViewModels
 
         public IList<FormattedAddress> Addresses
         {
-            get { return addresses; }
+            get
+            {
+                return addresses;
+            }
+
+            set
+            {
+                addresses = value;
+                OnPropertyChanged();
+            }
         }
 
         public SettingsViewModel(IGeocodingService geocodingService)
         {
             this.geocodingService = geocodingService;
-            GetNewAddresses("");
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
 
-
-        public ICommand AddressChangeCommand
+        private async void GetNewAddresses(string address)
         {
-            get
-            {
-                if (addressChangeCommand == null)
-                    addressChangeCommand = new SettingsCommand(GetNewAddresses, CanChangeAddress);
-                return addressChangeCommand;
-            }
+            if (string.IsNullOrEmpty(address))
+                return;
+            Addresses = await geocodingService.GetFormattedAddressAsync(address);
         }
 
-        private bool CanChangeAddress(object parameter)
+        public void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            FormattedAddress currentSelectedAddress = parameter as FormattedAddress;
-            if (selectedAddress == null)
-                return false;
-            return true;
-        }
-
-        private async void GetNewAddresses(object parameter)
-        {
-            addresses = await geocodingService.GetFormattedAddressAsync((string)parameter);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
