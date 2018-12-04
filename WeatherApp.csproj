@@ -58,6 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\SettingsCommand.cs" />
     <Compile Include="BusinessModels\BusinessDailyForecast.cs" />
     <Compile Include="BusinessModels\BusinessWeatherForecast.cs" />
     <Compile Include="Services\DarkSkyWeatherService\DarkSkyWeatherService.cs" />
@@ -130,6 +131,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
+
   <ItemGroup>
     <Folder Include="Commands\" />
   </ItemGroup>
