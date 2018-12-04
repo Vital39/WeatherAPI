@@ -14,10 +14,10 @@ namespace WeatherApp.Models.LocationIQGeocoding
         public string PlaceId { get; set; }
 
         [JsonProperty("lat")]
-        public string Lat { get; set; }
+        public double Lat { get; set; }
 
         [JsonProperty("lon")]
-        public string Lon { get; set; }
+        public double Lon { get; set; }
 
         [JsonProperty("display_name")]
         public string DisplayName { get; set; }

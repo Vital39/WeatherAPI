@@ -24,9 +24,9 @@ namespace WeatherApp.Services
 
     public class LocationIQGeocodingService : IGeocodingService
     {
-        public async Task<IList<FormattedAddress>> GetFormattedAddressAsync(string city_adrress)
+        public async Task<IList<FormattedAddress>> GetFormattedAddressAsync(string cityAdrress)
         {
-            string requestUri = string.Format("https://eu1.locationiq.com/v1/search.php?key=a43d65b56a1a62&q={0}&format=json&addressdetails=1", Uri.EscapeDataString(city_adrress));
+            string requestUri = string.Format("https://eu1.locationiq.com/v1/search.php?key=a43d65b56a1a62&q={0}&format=json&addressdetails=1", Uri.EscapeDataString(cityAdrress));
             try
             {
                 WebClient webClient = new WebClient();
@@ -36,8 +36,8 @@ namespace WeatherApp.Services
                 {
                     CityName = r.Address.City,
                     CountryName =r.Address.Country,
-                    Latitude = Double.Parse(r.Lat),
-                    Longtitude = Double.Parse(r.Lon) 
+                    Latitude = r.Lat,
+                    Longtitude = r.Lon
                 }).ToList();
                 return formattedAddresses;
             }
