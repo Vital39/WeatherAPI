@@ -22,7 +22,15 @@ namespace WeatherApp.ViewModels.MainViewModels
                 Temperature = weatherForecast.CurrentForecast.Temperature.ToString(),
                 WindSpeed = weatherForecast.CurrentForecast.WindSpeed.ToString(),
                 CloudCover = weatherForecast.CurrentForecast.Summary,
-                Icon = weatherForecast.WeekForecast.Icon + ".jpg"
+                Icon = weatherForecast.WeekForecast.Icon + ".jpg",
+                BusinessDailyForecasts = weatherForecast.WeekForecast.WeekForecasts.Select(df => new BusinessDailyForecast
+                {
+                    DayWeek = formatter.GetWeekDay(df.Time),
+                    Date = formatter.GetShortDate(df.Time),
+                    RangeTemperature = df.TemperatureMin.ToString()+"-"+df.TemperatureMax.ToString(),
+                    WindSpeed = df.WindSpeed.ToString(),
+                    Icon = df.Icon + ".jpg"
+                }).ToList(),
             };
             return forecast;
         }
