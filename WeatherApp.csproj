@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -60,6 +60,8 @@
     </ApplicationDefinition>
     <Compile Include="BusinessModels\BusinessWeatherForecast.cs" />
     <Compile Include="Services\DarkSkyWeatherService\MockWeatherService.cs" />
+    <Compile Include="ViewModels\MainViewModel\BusinessWeatherForecastFactory.cs" />
+    <Compile Include="ViewModels\MainViewModel\MainViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="Windows\SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
@@ -83,7 +85,7 @@
     <Compile Include="Models\Location.cs" />
     <Compile Include="Services\LocationInfo.cs" />
     <Compile Include="Services\UnixFormatter.cs" />
-        <Compile Include="Models\GoogleGeocoding\AddressComponent.cs" />
+    <Compile Include="Models\GoogleGeocoding\AddressComponent.cs" />
     <Compile Include="Models\GoogleGeocoding\Geometry.cs" />
     <Compile Include="Models\GoogleGeocoding\Location.cs" />
     <Compile Include="Models\GoogleGeocoding\Result.cs" />
