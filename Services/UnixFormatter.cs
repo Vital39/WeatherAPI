@@ -8,20 +8,36 @@ using System.Threading.Tasks;
 namespace WeatherApp.Services
 {
     public class UnixFormatter
-    {
-        private UnixConverter converter=new UnixConverter();
-        private DateTime dateTime; 
-        public UnixFormatter(long unixTime)
+    {  
+        public string GetShortDate(long unixTime)
         {
-            dateTime= this.converter.UnixTimeToDatetime(unixTime);
+            var dateTime = GetDateTime(unixTime);
+            string mounth = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(dateTime.Month);           
+            return $"{dateTime.Day} {mounth.Substring(0, 3)} {dateTime.Year}";
+        }
+        public string GetTime(long unixTime)
+        {
+            var dateTime = GetDateTime(unixTime);
+            return $"{dateTime.Hour}:{dateTime.Minute}";
+        }
+        public string GetWeekDay(long unixTime)
+        {
+            var dateTime = GetDateTime(unixTime);
+            var weekDay = CultureInfo.CurrentCulture.DateTimeFormat.GetDayName(dateTime.DayOfWeek);
+            return $"{weekDay}";
         }
 
-        public string GetShortDate()
+        public string GetNumberAndMonth(long unixTime)
         {
+            var dateTime = GetDateTime(unixTime);
             string mounth = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(dateTime.Month);
-            
-            return $"{dateTime.Day} {mounth.Substring(0, 3)} {dateTime.Year}";
-            
+            return $"{dateTime.Day} {mounth}";
+        }
+
+        private DateTime GetDateTime(long unixTime)
+        {
+            var dateTime = DateTimeOffset.FromUnixTimeSeconds(unixTime).UtcDateTime;
+            return dateTime;
         }
     }
 }
