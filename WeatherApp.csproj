@@ -84,7 +84,6 @@
     <Compile Include="Services\LocationInfo.cs" />
     <Compile Include="Services\UnixConverter.cs" />
     <Compile Include="Services\UnixFormatter.cs" />
-    <Compile Include="Models\DarkSkyDataModel\WeatherData.cs" />
     <Compile Include="Models\GoogleGeocoding\AddressComponent.cs" />
     <Compile Include="Models\GoogleGeocoding\Geometry.cs" />
     <Compile Include="Models\GoogleGeocoding\Location.cs" />
