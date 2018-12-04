@@ -14,5 +14,6 @@ namespace WeatherApp.BusinessModels
         public string Icon { get; set; }
         public string WindSpeed { get; set; }
         public string CloudCover { get; set; }
+        public List<BusinessDailyForecast> BusinessDailyForecasts { get; set; }
     }
 }
