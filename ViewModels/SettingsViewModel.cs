@@ -16,10 +16,32 @@ namespace WeatherApp.ViewModels
         private readonly IGeocodingService geocodingService;
         private SettingsCommand addressChangeCommand;
         private FormattedAddress selectedAddress;
+        private IList<FormattedAddress> addresses;
+        private string text;
+
+        public string Text
+        {
+            get
+            {
+                return text;
+            }
+
+            set
+            {
+                text = value;
+                GetNewAddresses(text);
+            }
+        }
+
+        public IList<FormattedAddress> Addresses
+        {
+            get { return addresses; }
+        }
 
         public SettingsViewModel(IGeocodingService geocodingService)
         {
             this.geocodingService = geocodingService;
+            GetNewAddresses("");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -45,7 +67,7 @@ namespace WeatherApp.ViewModels
 
         private async void GetNewAddresses(object parameter)
         {
-            await geocodingService.GetFormattedAddressAsync("");
+            addresses = await geocodingService.GetFormattedAddressAsync((string)parameter);
         }
     }
 }
