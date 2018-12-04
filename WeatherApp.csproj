@@ -58,6 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BusinessModels\BusinessWeatherForecast.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="Windows\SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
@@ -70,19 +71,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Services\DarkSkyWeatherService\Models\WeatherForecast.cs" />
+    <Compile Include="Services\DarkSkyWeatherService\Models\CurrentForecast.cs" />
+    <Compile Include="Services\DarkSkyWeatherService\Models\DailyForecast.cs" />
     <Compile Include="Interfaces\IGetLocationServices.cs" />
-    <Compile Include="BusinessModels\BusinessWeatherCondition.cs" />
-    <Compile Include="BusinessModels\CurrentForecast.cs" />
-    <Compile Include="BusinessModels\DailyForecast.cs" />
     <Compile Include="BusinessModels\FormattedAddress.cs" />
-    <Compile Include="BusinessModels\WeekForecast.cs" />
+    <Compile Include="Services\DarkSkyWeatherService\Models\WeekForecast.cs" />
     <Compile Include="Interfaces\IGeocodingService.cs" />
     <Compile Include="Interfaces\IWeatherService.cs" />
-    <Compile Include="Models\DarkSkyDataModel\Currently.cs" />
-    <Compile Include="Models\DarkSkyDataModel\Daily.cs" />
-    <Compile Include="Models\DarkSkyDataModel\Datum.cs" />
-    <Compile Include="Models\DarkSkyDataModel\Flags.cs" />
-    <Compile Include="Models\DarkSkyDataModel\Hourly.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Services\LocationInfo.cs" />
     <Compile Include="Services\UnixConverter.cs" />
@@ -135,8 +131,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\" />
-    <Folder Include="Images\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Cloudy.png" />

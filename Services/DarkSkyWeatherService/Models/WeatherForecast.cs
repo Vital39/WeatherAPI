@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WeatherApp.BusinessModels
 {
-    public class BusinessWeatherCondition
+    public class WeatherForecast
     {
         [JsonProperty("latitude")]
         public double Latitude { get; set; }
