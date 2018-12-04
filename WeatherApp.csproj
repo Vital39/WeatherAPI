@@ -58,6 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BusinessModels\BusinessDailyForecast.cs" />
     <Compile Include="BusinessModels\BusinessWeatherForecast.cs" />
     <Compile Include="Services\DarkSkyWeatherService\DarkSkyWeatherService.cs" />
     <Compile Include="Services\DarkSkyWeatherService\MockWeatherService.cs" />
