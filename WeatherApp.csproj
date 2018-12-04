@@ -58,6 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BusinessModels\BusinessWeatherForecast.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="Windows\SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
@@ -70,11 +71,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BusinessModels\WeatherForecast.cs" />
-    <Compile Include="BusinessModels\CurrentForecast.cs" />
-    <Compile Include="BusinessModels\DailyForecast.cs" />
+    <Compile Include="Services\DarkSkyWeatherService\Models\WeatherForecast.cs" />
+    <Compile Include="Services\DarkSkyWeatherService\Models\CurrentForecast.cs" />
+    <Compile Include="Services\DarkSkyWeatherService\Models\DailyForecast.cs" />
     <Compile Include="BusinessModels\FormattedAddress.cs" />
-    <Compile Include="BusinessModels\WeekForecast.cs" />
+    <Compile Include="Services\DarkSkyWeatherService\Models\WeekForecast.cs" />
     <Compile Include="Interfaces\IGeocodingService.cs" />
     <Compile Include="Interfaces\IWeatherService.cs" />
     <Compile Include="Models\Location.cs" />
