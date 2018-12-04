@@ -85,7 +85,6 @@
     <Compile Include="Models\DarkSkyDataModel\Hourly.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Services\LocationInfo.cs" />
-    <Compile Include="Services\UnixConverter.cs" />
     <Compile Include="Services\UnixFormatter.cs" />
     <Compile Include="Models\DarkSkyDataModel\WeatherData.cs" />
     <Compile Include="Models\GoogleGeocoding\AddressComponent.cs" />
@@ -135,8 +134,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\" />
-    <Folder Include="Images\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Cloudy.png" />
