@@ -70,8 +70,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-
-    <Compile Include="BusinessModels\BusinessWeatherCondition.cs" />
+    <Compile Include="BusinessModels\WeatherForecast.cs" />
     <Compile Include="BusinessModels\CurrentForecast.cs" />
     <Compile Include="BusinessModels\DailyForecast.cs" />
     <Compile Include="BusinessModels\FormattedAddress.cs" />
@@ -132,8 +131,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\" />
-    <Folder Include="Images\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Cloudy.png" />

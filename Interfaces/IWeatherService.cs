@@ -9,6 +9,6 @@ namespace WeatherApp.Interfaces
 {
     interface IWeatherService
     {
-        BusinessWeatherCondition GetWeather();
+        WeatherForecast GetWeather();
     }
 }
