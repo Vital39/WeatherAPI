@@ -9,6 +9,6 @@ namespace WeatherApp.Interfaces
 {
     interface IWeatherService
     {
-        WeatherForecast GetWeather();
+        Task<WeatherForecast> GetWeather();
     }
 }
