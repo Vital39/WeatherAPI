@@ -12,7 +12,7 @@ namespace WeatherApp.Models
         [JsonProperty("lat")]
         public double Latitude { get; set; }
 
-        [JsonProperty("long")]
+        [JsonProperty("lon")]
         public double Longitude { get; set; }
     }
 }
