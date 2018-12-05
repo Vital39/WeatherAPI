@@ -14,7 +14,8 @@
 
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" >
             <CheckBox Name="AutoLocationCheckBox" Content="Определять местоположение автоматически" IsChecked="{Binding IsCheckBoxChecked}" />
-            <ComboBox Name="CurrentLocationComboBox" IsEnabled="{Binding IsEnableComboBox}" Text="{Binding Path=Text, Delay=200}" MinWidth="100" IsEditable="True" ItemsSource="{Binding Path=Addresses}" IsDropDownOpen="{Binding IsDropDownOpen,Mode=TwoWay}"/>
+            <ComboBox Name="CurrentLocationComboBox" IsEnabled="{Binding IsEnableComboBox}" Text="{Binding Path=Text, Delay=200}" MinWidth="100" IsEditable="True" ItemsSource="{Binding Path=Addresses}" IsDropDownOpen="{Binding IsDropDownOpen,Mode=TwoWay}">
+            </ComboBox>
         </StackPanel>
     </DockPanel>
 </Window>
