@@ -26,10 +26,16 @@ namespace WeatherApp.Services.DarkSkyWeatherService
             }
             catch (WebException)
             {
-
-                throw;
+                throw new WeatherServiceException();
             }
-            throw new NotImplementedException();
+            catch(JsonSerializationException)
+            {
+                throw new WeatherServiceException();
+            }
+            catch(JsonReaderException)
+            {
+                throw new WeatherServiceException();
+            }
         }
     }
 }
