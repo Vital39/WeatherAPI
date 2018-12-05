@@ -93,7 +93,6 @@
     <Compile Include="Services\UnixFormatter.cs" />
     <Compile Include="Models\LocationIQGeocoding\LocationIQAddressComponents.cs" />
     <Compile Include="Models\LocationIQGeocoding\LocationIQGeocodeResult.cs" />
-    <Compile Include="Services\GoogleGeocodingService.cs" />
     <Compile Include="Services\LocationIQGeocodingService.cs" />
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

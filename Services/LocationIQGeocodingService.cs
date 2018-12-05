@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using WeatherApp.BusinessModels;
 using WeatherApp.Interfaces;
-using WeatherApp.Models.Geocoding;
 using WeatherApp.Models.LocationIQGeocoding;
 
 namespace WeatherApp.Services
