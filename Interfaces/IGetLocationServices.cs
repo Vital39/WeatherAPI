@@ -7,6 +7,11 @@ using WeatherApp.Models;
 
 namespace WeatherApp.Interfaces
 {
+    public class LocationServiceExeption : Exception
+    {
+
+    }
+
     public interface IGetLocationServices
     {
         Task<Location> GetCurrentLocation();
