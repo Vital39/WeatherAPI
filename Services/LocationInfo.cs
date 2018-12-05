@@ -12,19 +12,19 @@ namespace WeatherApp.Services
 {
     public class LocationInfo : IGetLocationServices
     {
-        private readonly string api2Ip = "https://api.2ip.ua";
-        private readonly string geoJsonData = "geo.json";
-
+        private readonly string ipServiceUrl = "https://ip-api.com/json";
+        
+        private ConfigEditor ConfigEditor = new ConfigEditor();
         public async Task<Location> GetCurrentLocation()
         {
-            Location location = new ConfigEditor().GetLoaction();
+            Location location = ConfigEditor.GetLoaction();
             if (location != null)
                 return location;
 
             WebClient client = new WebClient();
-            client.BaseAddress = api2Ip;
+           
 
-            string result = await client.DownloadStringTaskAsync(geoJsonData);
+            string result = await client.DownloadStringTaskAsync(ipServiceUrl);
 
             location = JsonConvert.DeserializeObject<Location>(result);
             return location;
