@@ -8,32 +8,32 @@
         Title="MainWindow" Height="450" Width="517.797">
     <Grid>
         <StackPanel>
-            <Label HorizontalAlignment="Center" Content="Tue, 26 June"/>
-            <Label HorizontalAlignment="Center" Content="05:12 PM"/>
+            <Label Name="Datelb" Content="{Binding Forecast.Date}" HorizontalAlignment="Center"/>
+            <Label Name="Timelb" HorizontalAlignment="Center" Content="{Binding Forecast.Time}"/>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
                     <ColumnDefinition Width="3*"></ColumnDefinition>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" VerticalAlignment="Center" Content="21°C"/>
-                <Image Grid.Column="1" Source="Images/PartlyCloudyNight.png" Stretch="Uniform" StretchDirection="Both" Height="250" Width="250" />
-                <Label Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5" Content="10km/h"/>
+                <Label Name="Degreeslb" Grid.Column="0" VerticalAlignment="Center" Content="{Binding Forecast.Temperature}"/>
+                <Image Name="Imagepic" Grid.Column="1" Source="{Binding Forecast.Icon}" Stretch="Uniform" StretchDirection="Both" Height="250" Width="250" />
+                <Label Name="WindSpeedlb" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5" Content="{Binding Forecast.WindSpeed}"/>
             </Grid>
-            <Label HorizontalAlignment="Center" Content="PartlyCloudyNight"/>
+            <Label Name="ValueWeatherlb" HorizontalAlignment="Center" Content="{Binding Forecast.CloudCover}"/>
             <Grid>
-                <ListBox>
+                <ListBox ItemsSource="{Binding Forecast.WeekForecast}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal" Height="50">
+                            <StackPanel Orientation="Horizontal" Height="50"> 
                                 <StackPanel Orientation="Vertical">
-                                    <Label VerticalAlignment="Top" Content="Tuesday"/>
-                                    <Label VerticalAlignment="Top" Content="June 26"/>
-                                    <Label VerticalAlignment="Bottom" Content="21°C"/>
+                                    <Label VerticalAlignment="Top" Content="{Binding DayWeek}"/>
+                                    <Label VerticalAlignment="Top" Content="{Binding Date}"/>
+                                    <Label VerticalAlignment="Bottom" Content="{Binding RangeTemperature}"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Vertical" Width="50">
-                                    <Image VerticalAlignment="Top" Source="Images/PartlyCloudyNight.png"/>
-                                    <Label VerticalAlignment="Bottom" Content="10km/h" />
+                                    <Image VerticalAlignment="Top" Source="{Binding Icon}"/>
+                                    <Label VerticalAlignment="Bottom" Content="{Binding WindSpeed}" />
                                 </StackPanel>
                             </StackPanel>
                         </DataTemplate>
