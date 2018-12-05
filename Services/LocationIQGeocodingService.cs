@@ -46,8 +46,6 @@ namespace WeatherApp.Services
             {
                 throw new LocationIQGeocodingException(e.Message);
             }
-
-            
         }
     }
 }

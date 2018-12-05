@@ -17,6 +17,10 @@ namespace WeatherApp.ViewModels
         private readonly IGeocodingService geocodingService;
         private IList<FormattedAddress> addresses;
         private string text;
+        private bool isDropDownOpen;
+        private bool isEnableComboBox;
+        private bool isCheckBoxChecked;
+        private FormattedAddress selectedAddress;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -34,6 +38,49 @@ namespace WeatherApp.ViewModels
             }
         }
 
+        public bool IsCheckBoxChecked
+        {
+            get
+            {
+                return isCheckBoxChecked;
+            }
+
+            set
+            {
+                isCheckBoxChecked = value;
+                IsEnableComboBox = !value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool IsEnableComboBox
+        {
+            get
+            {
+                return isEnableComboBox;
+            }
+
+            set
+            {
+                isEnableComboBox = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public FormattedAddress SelectedAddress
+        {
+            get
+            {
+                return selectedAddress;
+            }
+
+            set
+            {
+                selectedAddress = value;
+                OnPropertyChanged();
+            }
+        }
+
         public IList<FormattedAddress> Addresses
         {
             get
@@ -41,12 +88,23 @@ namespace WeatherApp.ViewModels
                 return addresses;
             }
 
-            set
+            private set
             {
                 addresses = value;
                 OnPropertyChanged();
             }
         }
+
+        public bool IsDropDownOpen
+        {
+            get { return isDropDownOpen; }
+            set
+            {
+                isDropDownOpen = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         public SettingsViewModel(IGeocodingService geocodingService)
         {
@@ -59,6 +117,7 @@ namespace WeatherApp.ViewModels
             if (string.IsNullOrEmpty(address))
                 return;
             Addresses = await geocodingService.GetFormattedAddressAsync(address);
+            IsDropDownOpen = true;
         }
 
         public void OnPropertyChanged([CallerMemberName] string propertyName = "")

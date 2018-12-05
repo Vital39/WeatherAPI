@@ -13,5 +13,10 @@ namespace WeatherApp.BusinessModels
         public string Town { get; set; }
         public double Latitude { get; set; }
         public double Longtitude { get; set; }
+
+        public override string ToString()
+        {
+            return $"{CountryName}, {(string.IsNullOrEmpty(CityName)?Town:CityName)} ";
+        }
     }
 }
