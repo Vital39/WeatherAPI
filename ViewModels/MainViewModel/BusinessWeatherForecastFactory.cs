@@ -9,7 +9,7 @@ using WeatherApp.Services;
 
 namespace WeatherApp.ViewModels.MainViewModels
 {
-    class BusinessWeatherForecastFactory
+    public class BusinessWeatherForecastFactory
     {
         private UnixFormatter formatter = new UnixFormatter();
 
@@ -22,14 +22,14 @@ namespace WeatherApp.ViewModels.MainViewModels
                 Temperature = weatherForecast.CurrentForecast.Temperature.ToString(),
                 WindSpeed = weatherForecast.CurrentForecast.WindSpeed.ToString(),
                 CloudCover = weatherForecast.CurrentForecast.Summary,
-                Icon = weatherForecast.WeekForecast.Icon + ".jpg",
-                BusinessDailyForecasts = weatherForecast.WeekForecast.WeekForecasts.Select(df => new BusinessDailyForecast
+                Icon = weatherForecast.WeekForecast.Icon + ".png",
+                WeekForecast = weatherForecast.WeekForecast.WeekForecasts.Select(df => new BusinessDailyForecast
                 {
                     DayWeek = formatter.GetWeekDay(df.Time),
                     Date = formatter.GetShortDate(df.Time),
                     RangeTemperature = df.TemperatureMin.ToString()+"-"+df.TemperatureMax.ToString(),
                     WindSpeed = df.WindSpeed.ToString(),
-                    Icon = df.Icon + ".jpg"
+                    Icon = df.Icon + ".png"
                 }).ToList(),
             };
             return forecast;
