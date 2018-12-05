@@ -42,7 +42,23 @@ namespace WeatherApp.Services
                 }).ToList();
                 return formattedAddresses;
             }
-            catch (WebException e)
+            catch (WebException ex)
+            {
+                if (ex.Status == WebExceptionStatus.ProtocolError)
+                {
+                    var response = ex.Response as HttpWebResponse;
+                    if (response != null && response.StatusCode == HttpStatusCode.NotFound)
+                    {
+                        return new List<FormattedAddress>();
+                    }
+                }
+                throw new LocationIQGeocodingException(ex.Message);
+            }
+            catch(JsonReaderException e)
+            {
+                throw new LocationIQGeocodingException(e.Message);
+            }
+            catch(JsonSerializationException e)
             {
                 throw new LocationIQGeocodingException(e.Message);
             }
