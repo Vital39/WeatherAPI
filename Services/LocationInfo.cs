@@ -22,12 +22,29 @@ namespace WeatherApp.Services
                 return location;
 
             WebClient client = new WebClient();
-           
 
-            string result = await client.DownloadStringTaskAsync(ipServiceUrl);
+            try
+            {
+                string result = await client.DownloadStringTaskAsync(ipServiceUrl);
 
-            location = JsonConvert.DeserializeObject<Location>(result);
-            return location;
+                location = JsonConvert.DeserializeObject<Location>(result);
+                return location;
+            }
+            catch (WebException ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex);
+                throw new LocationServiceExeption();
+            }
+            catch (JsonSerializationException ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex);
+                throw new LocationServiceExeption();
+            }
+            catch (JsonReaderException ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex);
+                throw new LocationServiceExeption();
+            }
         }
 
     }
