@@ -12,7 +12,7 @@ namespace WeatherApp.Services
 {
     public class LocationInfo : IGetLocationServices
     {
-        private readonly string ipServiceUrl = "https://ip-api.com/json";
+        private readonly string ipServiceUrl = "http://ip-api.com/json";
         
         private ConfigEditor ConfigEditor = new ConfigEditor();
         public async Task<Location> GetCurrentLocation()
