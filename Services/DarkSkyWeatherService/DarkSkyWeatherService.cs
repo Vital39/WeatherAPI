@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Net;
@@ -16,9 +17,9 @@ namespace WeatherApp.Services.DarkSkyWeatherService
         IGetLocationServices locationService = new LocationInfo();
         public async Task<WeatherForecast> GetWeather()
         {
+            var location = await locationService.GetCurrentLocation();
             try
-            {
-                var location = await locationService.GetCurrentLocation();
+            {            
                 var numberFormat = new NumberFormatInfo
                 {
                     NumberDecimalSeparator = "."
@@ -31,16 +32,19 @@ namespace WeatherApp.Services.DarkSkyWeatherService
                 WeatherForecast weatherForecast = JsonConvert.DeserializeObject<WeatherForecast>(result);
                 return weatherForecast;
             }
-            catch (WebException)
+            catch (WebException e)
             {
+                Debug.WriteLine(e.Message);
                 throw new WeatherServiceException();
             }
-            catch(JsonSerializationException)
+            catch(JsonSerializationException e)
             {
+                Debug.WriteLine(e.Message);
                 throw new WeatherServiceException();
             }
-            catch(JsonReaderException)
+            catch(JsonReaderException e)
             {
+                Debug.WriteLine(e.Message);
                 throw new WeatherServiceException();
             }
         }
