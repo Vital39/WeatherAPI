@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WeatherApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="470" Width="517.797">
+        Title="MainWindow" Height="570" Width="517.797">
     <Grid>
         <StackPanel>
             <Label Name="Datelb" Content="{Binding Forecast.Date}" HorizontalAlignment="Center"/>
@@ -22,7 +22,7 @@
             </Grid>
             <Label Name="ValueWeatherlb" HorizontalAlignment="Center" Content="{Binding Forecast.CloudCover}"/>
             <StackPanel>
-                <ListBox MaxHeight="100" ItemsSource="{Binding Forecast.WeekForecast}" ScrollViewer.CanContentScroll="True" >
+                <ListBox MaxHeight="200" ItemsSource="{Binding Forecast.WeekForecast}" ScrollViewer.CanContentScroll="True" >
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" Height="50">
