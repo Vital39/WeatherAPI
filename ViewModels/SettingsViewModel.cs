@@ -18,6 +18,7 @@ namespace WeatherApp.ViewModels
     {
         private readonly IGeocodingService geocodingService;
         private ConfigEditor configEditor = new ConfigEditor();
+        private MessegeBoxService messegeBoxService = new MessegeBoxService();
         private IList<FormattedAddress> addresses;
         private string text;
         private bool isDropDownOpen;
@@ -26,6 +27,8 @@ namespace WeatherApp.ViewModels
         private FormattedAddress selectedAddress;
 
         private SettingsCommand okCommand;
+        private SettingsCommand cancleCommand;
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -40,6 +43,56 @@ namespace WeatherApp.ViewModels
             {
                 text = value;
                 GetNewAddresses(text);
+            }
+        }
+
+        public ICommand OkCommand
+        {
+            get
+            {
+                if (okCommand == null)
+                    okCommand = new SettingsCommand(SetConfig, CanSetConfig);
+                return okCommand;
+            }
+        }
+
+        public ICommand CancleCommand
+        {
+            get
+            {
+                if (cancleCommand == null)
+                    cancleCommand = new SettingsCommand(CloseWindow, CanCloseWindow);
+                return cancleCommand;
+            }
+        }
+
+        private void CloseWindow(object parametr)
+        {
+            CloseWindow(parametr);
+        }
+
+        private bool CanCloseWindow(object parametr)
+        {
+            return true;
+        }
+
+        private bool CanSetConfig(object parametr)
+        {
+            if (selectedAddress == null)
+                return false;
+            return true;
+        }
+
+        private void SetConfig(object parameter)
+        {
+            try
+            {
+                //SelectedAddress.
+                //configEditor.SetLoaction(new);
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
 
@@ -131,7 +184,7 @@ namespace WeatherApp.ViewModels
             }
             catch (WeatherApp.Services.LocationIQGeocodingException e)
             {
-                MessageBox.Show(e.Message);
+                messegeBoxService.ShowMessege(e.Message);
             }
         }
 
