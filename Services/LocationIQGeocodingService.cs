@@ -37,12 +37,27 @@ namespace WeatherApp.Services
                     CityName = r.Address.City,
                     Town = r.Address.Town,
                     CountryName =r.Address.Country,
-                    Latitude = r.Lat,
-                    Longtitude = r.Lon
+                    Location = new Models.Location() { Latitude = r.Lat,Longitude = r.Lon}
                 }).ToList();
                 return formattedAddresses;
             }
-            catch (WebException e)
+            catch (WebException ex)
+            {
+                if (ex.Status == WebExceptionStatus.ProtocolError)
+                {
+                    var response = ex.Response as HttpWebResponse;
+                    if (response != null && response.StatusCode == HttpStatusCode.NotFound)
+                    {
+                        return new List<FormattedAddress>();
+                    }
+                }
+                throw new LocationIQGeocodingException(ex.Message);
+            }
+            catch(JsonReaderException e)
+            {
+                throw new LocationIQGeocodingException(e.Message);
+            }
+            catch(JsonSerializationException e)
             {
                 throw new LocationIQGeocodingException(e.Message);
             }

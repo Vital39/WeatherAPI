@@ -9,10 +9,10 @@ namespace WeatherApp.Models
 {
     public class Location
     {
-        [JsonProperty("latitude")]
+        [JsonProperty("lat")]
         public double Latitude { get; set; }
 
-        [JsonProperty("longitude")]
+        [JsonProperty("long")]
         public double Longitude { get; set; }
     }
 }
