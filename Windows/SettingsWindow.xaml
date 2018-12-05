@@ -8,18 +8,13 @@
 
     <DockPanel LastChildFill="True">
         <WrapPanel DockPanel.Dock="Bottom" HorizontalAlignment="Center">
-            <Button Name="CancleButton" Content="Cancle"/>
+            <Button Name="CancleButton" Content="Cancle" Command="{Binding CancleCommand}" />
             <Button Name="OkButton" Content="Ok"/>
         </WrapPanel>
 
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" >
-            <CheckBox Name="AutoLocationCheckBox"/>
-            <ComboBox Name="CurrentLocationComboBox" Text="{Binding Path=Text, UpdateSourceTrigger=LostFocus}" MinWidth="100" IsEditable="True" ItemsSource="{Binding Path=Addresses}">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Path=CountryName}" />
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
+            <CheckBox Name="AutoLocationCheckBox" Content="Определять местоположение автоматически" IsChecked="{Binding IsCheckBoxChecked}" />
+            <ComboBox Name="CurrentLocationComboBox" IsEnabled="{Binding IsEnableComboBox}" SelectedItem="{Binding SelectedAddress}" Text="{Binding Path=Text, Delay=200}" MinWidth="100" IsEditable="True" ItemsSource="{Binding Path=Addresses}" IsDropDownOpen="{Binding IsDropDownOpen,Mode=TwoWay}">
             </ComboBox>
         </StackPanel>
     </DockPanel>

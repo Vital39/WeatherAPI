@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using WeatherApp.BusinessModels;
 
-
 namespace WeatherApp.Interfaces
 {
     public interface IGeocodingService

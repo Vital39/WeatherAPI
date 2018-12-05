@@ -12,6 +12,13 @@ namespace WeatherApp.BusinessModels
         public string CountryName { get; set; }
         public string CityName { get; set; }
         public string Town { get; set; }
+
+        public override string ToString()
+        {
+            return $"{CountryName}, {(string.IsNullOrEmpty(CityName)?Town:CityName)} ";
+        }
+
         public Location Location { get; set; }
+
     }
 }
