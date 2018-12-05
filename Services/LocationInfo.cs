@@ -17,12 +17,16 @@ namespace WeatherApp.Services
 
         public async Task<Location> GetCurrentLocation()
         {
+            Location location = new ConfigEditor().GetLoaction();
+            if (location != null)
+                return location;
+
             WebClient client = new WebClient();
             client.BaseAddress = api2Ip;
 
             string result = await client.DownloadStringTaskAsync(geoJsonData);
-           
-            var location = JsonConvert.DeserializeObject<Location>(result);
+
+            location = JsonConvert.DeserializeObject<Location>(result);
             return location;
         }
 
