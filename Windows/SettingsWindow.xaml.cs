@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WeatherApp.Services;
+using WeatherApp.ViewModels;
 
 namespace WeatherApp.Windows
 {
@@ -22,6 +24,7 @@ namespace WeatherApp.Windows
         public Settings()
         {
             InitializeComponent();
+            this.DataContext = new SettingsViewModel(new LocationIQGeocodingService());
         }
     }
 }

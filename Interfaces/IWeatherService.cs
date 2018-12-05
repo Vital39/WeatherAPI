@@ -7,7 +7,11 @@ using WeatherApp.BusinessModels;
 
 namespace WeatherApp.Interfaces
 {
-    interface IWeatherService
+    public class WeatherServiceException : Exception
+    {
+      
+    }
+   public interface IWeatherService
     {
         Task<WeatherForecast> GetWeather();
     }

@@ -59,9 +59,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\SettingsCommand.cs" />
+    <Compile Include="BusinessModels\BusinessDailyForecast.cs" />
     <Compile Include="BusinessModels\BusinessWeatherForecast.cs" />
     <Compile Include="Services\ConfigEditor.cs" />
+    <Compile Include="Services\DarkSkyWeatherService\DarkSkyWeatherService.cs" />
     <Compile Include="Services\DarkSkyWeatherService\MockWeatherService.cs" />
+    <Compile Include="ViewModels\MainViewModel\BusinessWeatherForecastFactory.cs" />
+    <Compile Include="ViewModels\MainViewModel\MainViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="Windows\SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
@@ -130,6 +135,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
+
   <ItemGroup>
     <Folder Include="Commands\" />
   </ItemGroup>

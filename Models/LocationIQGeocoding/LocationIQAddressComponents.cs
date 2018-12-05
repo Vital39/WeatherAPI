@@ -12,8 +12,10 @@ namespace WeatherApp.Models.LocationIQGeocoding
       
             [JsonProperty("city")]
             public string City { get; set; }
-            
-            [JsonProperty("postcode")]
+        [JsonProperty("town")]
+        public string Town { get; set; }
+
+        [JsonProperty("postcode")]
             public string Postcode { get; set; }
 
             [JsonProperty("country")]
