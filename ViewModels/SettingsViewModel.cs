@@ -5,22 +5,27 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using WeatherApp.BusinessModels;
 using WeatherApp.Commands;
 using WeatherApp.Interfaces;
+using WeatherApp.Services;
 
 namespace WeatherApp.ViewModels
 {
     public class SettingsViewModel : INotifyPropertyChanged
     {
         private readonly IGeocodingService geocodingService;
+        private ConfigEditor configEditor = new ConfigEditor();
         private IList<FormattedAddress> addresses;
         private string text;
         private bool isDropDownOpen;
         private bool isEnableComboBox;
         private bool isCheckBoxChecked;
         private FormattedAddress selectedAddress;
+
+        private SettingsCommand okCommand;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -109,6 +114,9 @@ namespace WeatherApp.ViewModels
         public SettingsViewModel(IGeocodingService geocodingService)
         {
             this.geocodingService = geocodingService;
+            var location = configEditor.GetLoaction();
+            if (location != null)
+                IsEnableComboBox = false;
         }
 
 
@@ -116,8 +124,15 @@ namespace WeatherApp.ViewModels
         {
             if (string.IsNullOrEmpty(address))
                 return;
-            Addresses = await geocodingService.GetFormattedAddressAsync(address);
-            IsDropDownOpen = true;
+            try
+            {
+                Addresses = await geocodingService.GetFormattedAddressAsync(address);
+                IsDropDownOpen = true;
+            }
+            catch (WeatherApp.Services.LocationIQGeocodingException e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         public void OnPropertyChanged([CallerMemberName] string propertyName = "")
