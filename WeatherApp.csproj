@@ -66,6 +66,7 @@
     <Compile Include="Services\DarkSkyWeatherService\DarkSkyWeatherService.cs" />
     <Compile Include="Services\DarkSkyWeatherService\MockWeatherService.cs" />
     <Compile Include="Services\MessegeBoxService.cs" />
+    <Compile Include="Windows\AppRouter.cs" />
     <Compile Include="ViewModels\MainViewModel\BusinessWeatherForecastFactory.cs" />
     <Compile Include="ViewModels\MainViewModel\MainViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
