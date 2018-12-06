@@ -11,7 +11,7 @@ namespace WeatherApp.BusinessModels
         public string DayWeek { get; set; }
         public string Date { get; set; }
         public string RangeTemperature { get; set; }
-        public string Icon { get; set; }
+        public object Icon { get; set; }
         public string WindSpeed { get; set; }
 
     }

@@ -18,8 +18,8 @@
                     <ColumnDefinition Width="1*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Label Name="Degreeslb" Grid.Column="0" VerticalAlignment="Center" Content="{Binding Forecast.Temperature}"/>
-                <Image Name="Imagepic" Grid.Column="1" Source="{Binding Forecast.Icon}" Stretch="Uniform" StretchDirection="Both" Height="250" Width="250" />
-                <Label Name="WindSpeedlb" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5" Content="{Binding Forecast.WindSpeed}"/>
+                <Image Name="Imagepic" Grid.Column="1"  Stretch="Uniform" StretchDirection="Both" Height="250" Width="250" />
+                <Label Name="WindSpeedlb" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5" Content="{Binding Forecast.WindSpeed}"/> 
             </Grid>
             <Label Name="ValueWeatherlb" HorizontalAlignment="Center" Content="{Binding Forecast.CloudCover}"/>
             <StackPanel>
