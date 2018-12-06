@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -135,14 +136,38 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
-  <ItemGroup />
   <ItemGroup>
-    <Resource Include="Images\Cloudy.png" />
-    <Resource Include="Images\Fog.png" />
-    <Resource Include="Images\PartlyCloudyNight.png" />
-    <Resource Include="Images\Rain.png" />
-    <Resource Include="Images\Snow.png" />
+    <Resource Include="Images\partly-cloudy-day.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\partly-cloudy-night.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cloudy.png" />
+    <Resource Include="Images\fog.png" />
+    <Resource Include="Images\rain.png" />
+    <Resource Include="Images\snow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\cloud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\clouds-background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\moon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\rain-background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\reload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\sun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\sun-background.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

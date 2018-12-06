@@ -10,7 +10,7 @@ namespace WeatherApp.ViewModels
     public class AppRouter
     {
         private Settings settings;
-        public void OpenSettings()
+        public void OpenSettings(object o)
         {
             settings= new Settings();
             settings.Show();

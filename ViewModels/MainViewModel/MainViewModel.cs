@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using WeatherApp.BusinessModels;
+using WeatherApp.Commands;
 using WeatherApp.Interfaces;
 using WeatherApp.Services.DarkSkyWeatherService;
 
@@ -17,7 +18,22 @@ namespace WeatherApp.ViewModels.MainViewModels
         private BusinessWeatherForecastFactory factory = new BusinessWeatherForecastFactory();
         public event PropertyChangedEventHandler PropertyChanged;
         private BusinessWeatherForecast forecast;
-        
+        private SettingsCommand command;
+        private AppRouter appRouter = new AppRouter();
+        public SettingsCommand Command
+        {
+            get
+            {
+                if (command == null)
+                    command = new SettingsCommand(appRouter.OpenSettings);
+                return command;
+            }
+            set
+            {
+                command = value;
+            }
+        }
+
 
         public BusinessWeatherForecast Forecast
         {
