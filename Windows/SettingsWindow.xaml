@@ -20,7 +20,11 @@
                                                      MinWidth="100" IsEditable="True" 
                                                      ItemsSource="{Binding Path=Addresses}" 
                                                      IsDropDownOpen="{Binding IsDropDownOpen,Mode=TwoWay}"
+                                                     xmlns:sys="clr-namespace:System;assembly=mscorlib"
                                                      >
+                <ComboBox.Resources>
+                    <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">0</sys:Double>
+                </ComboBox.Resources>
             </ComboBox>
         </StackPanel>
     </DockPanel>
