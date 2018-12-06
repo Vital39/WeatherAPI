@@ -26,12 +26,12 @@ namespace WeatherApp.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string location {
+        public string Location {
             get {
-                return ((string)(this["location"]));
+                return ((string)(this["Location"]));
             }
             set {
-                this["location"] = value;
+                this["Location"] = value;
             }
         }
     }
