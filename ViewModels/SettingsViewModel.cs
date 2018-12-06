@@ -27,6 +27,8 @@ namespace WeatherApp.ViewModels
         private FormattedAddress selectedAddress;
 
         private SettingsCommand okCommand;
+        private SettingsCommand cancelCommand;
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         
@@ -55,6 +57,16 @@ namespace WeatherApp.ViewModels
             }
         }
 
+        public ICommand CancelCommand
+        {
+            get
+            {
+                if (cancelCommand == null)
+                    cancelCommand = new SettingsCommand(CloseWindow, CanCloseWindow);
+                return cancelCommand;
+            }
+        }
+
         private bool CanSetConfig(object parametr)
         {
             if (selectedAddress == null)
@@ -65,6 +77,18 @@ namespace WeatherApp.ViewModels
         private void SetConfig(object parameter)
         {
             configEditor.SetLoaction(selectedAddress.Location);
+        }
+
+        private void CloseWindow(object parameter)
+        {
+
+        }
+
+        private bool CanCloseWindow(object parametr)
+        {
+            if (selectedAddress == null)
+                return false;
+            return true;
         }
 
         public bool IsCheckBoxChecked
@@ -142,8 +166,8 @@ namespace WeatherApp.ViewModels
         public SettingsViewModel(IGeocodingService geocodingService)
         {
             this.geocodingService = geocodingService;
-            //var location = configEditor.GetLoaction();
-            //if (location != null)
+            var location = configEditor.GetLoaction();
+            if (location != null)
                 IsCheckBoxChecked = true;
         }
 
