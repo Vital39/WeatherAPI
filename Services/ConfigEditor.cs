@@ -15,6 +15,9 @@ namespace WeatherApp.Services
         public void SetLoaction(Location location)
         {
             ConfigurationManager.AppSettings[locationKey] = JsonConvert.SerializeObject(location);
+
+            Properties.Settings.Default.location = locationKey;
+            Properties.Settings.Default.Save();
         }
         public Location GetLoaction()
         {
