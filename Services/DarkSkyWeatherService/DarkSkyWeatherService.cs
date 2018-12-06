@@ -9,15 +9,27 @@ using System.Text;
 using System.Threading.Tasks;
 using WeatherApp.BusinessModels;
 using WeatherApp.Interfaces;
+using WeatherApp.Models;
 
 namespace WeatherApp.Services.DarkSkyWeatherService
 {
     public class DarkSkyWeatherService : IWeatherService
     {
+        
         IGetLocationServices locationService = new LocationInfo();
         public async Task<WeatherForecast> GetWeather()
         {
-            var location = await locationService.GetCurrentLocation();
+            Location location;
+            try 
+            {
+                location = await locationService.GetCurrentLocation();
+            }
+            catch (LocationServiceExeption e)
+            {
+                Debug.WriteLine(e.Message);
+                throw new LocationServiceExeption();
+            }
+           
             try
             {            
                 var numberFormat = new NumberFormatInfo
