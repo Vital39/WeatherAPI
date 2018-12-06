@@ -5,6 +5,10 @@
              StartupUri="Windows/SettingsWindow.xaml">
     
     <Application.Resources>
-         
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="Resources/SettingWindowResourceDictionary.xaml" />
+                </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
     </Application.Resources>
 </Application>

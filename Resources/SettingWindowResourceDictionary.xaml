@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:WeatherApp.Resources.SettingWindowResourceDictionary">
+
+    <LinearGradientBrush x:Key="backgroundGradient">
+        <GradientStopCollection>
+            <GradientStop Color="#FF8FE6EA" Offset="0" />
+            <GradientStop Color="#FF0936CF" Offset="1" />
+        </GradientStopCollection>
+    </LinearGradientBrush>
+</ResourceDictionary>

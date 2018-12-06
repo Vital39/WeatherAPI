@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Settings" Height="350" Width="500">
+    
+    
 
-    <DockPanel LastChildFill="True">
+    <DockPanel LastChildFill="True" Background="{StaticResource backgroundGradient}">
         <WrapPanel DockPanel.Dock="Bottom" HorizontalAlignment="Center">
             <Button Name="CancleButton" Content="Cancle"/>
             <Button Name="OkButton" Content="Ok" Command="{Binding OkCommand}"/>
