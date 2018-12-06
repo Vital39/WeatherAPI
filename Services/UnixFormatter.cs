@@ -9,27 +9,27 @@ namespace WeatherApp.Services
 {
     public class UnixFormatter
     {  
-        public string GetShortDate(long unixTime, string timeZoneId)
+        public string GetShortDate(long unixTime, string timeZoneId = null)
         {
-            var dateTime = GetDateTime(unixTime, timeZoneId=null);
+            var dateTime = GetDateTime(unixTime, timeZoneId);
             string mounth = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(dateTime.Month);           
             return $"{dateTime.Day} {mounth.Substring(0, 3)} {dateTime.Year}";
         }
-        public string GetTime(long unixTime, string timeZoneId)
+        public string GetTime(long unixTime, string timeZoneId = null)
         {
-            var dateTime = GetDateTime(unixTime, timeZoneId=null);
+            var dateTime = GetDateTime(unixTime, timeZoneId);
             return $"{dateTime.Hour}:{dateTime.Minute}";
         }
-        public string GetWeekDay(long unixTime, string timeZoneId)
+        public string GetWeekDay(long unixTime, string timeZoneId=null)
         {
-            var dateTime = GetDateTime(unixTime, timeZoneId=null);
+            var dateTime = GetDateTime(unixTime, timeZoneId);
             var weekDay = CultureInfo.CurrentCulture.DateTimeFormat.GetDayName(dateTime.DayOfWeek);
             return $"{weekDay}";
         }
 
-        public string GetNumberAndMonth(long unixTime, string timeZoneId)
+        public string GetNumberAndMonth(long unixTime, string timeZoneId = null)
         {
-            var dateTime = GetDateTime(unixTime, timeZoneId=null);
+            var dateTime = GetDateTime(unixTime, timeZoneId);
             string mounth = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(dateTime.Month);
             return $"{dateTime.Day} {mounth}";
         }
