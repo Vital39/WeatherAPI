@@ -5,16 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Settings" Height="350" Width="500">
+    
+    
 
-    <DockPanel LastChildFill="True">
+    <DockPanel LastChildFill="True" Background="{StaticResource backgroundGradient}">
         <WrapPanel DockPanel.Dock="Bottom" HorizontalAlignment="Center">
-            <Button Name="CancleButton" Content="Cancle" Command="{Binding CancleCommand}" />
-            <Button Name="OkButton" Content="Ok"/>
+            <Button Name="CancleButton" Content="Cancle"/>
+            <Button Name="OkButton" Content="Ok" Command="{Binding OkCommand}"/>
         </WrapPanel>
 
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" >
             <CheckBox Name="AutoLocationCheckBox" Content="Определять местоположение автоматически" IsChecked="{Binding IsCheckBoxChecked}" />
-            <ComboBox Name="CurrentLocationComboBox" IsEnabled="{Binding IsEnableComboBox}" SelectedItem="{Binding SelectedAddress}" Text="{Binding Path=Text, Delay=200}" MinWidth="100" IsEditable="True" ItemsSource="{Binding Path=Addresses}" IsDropDownOpen="{Binding IsDropDownOpen,Mode=TwoWay}">
+            <ComboBox Name="CurrentLocationComboBox" IsEnabled="{Binding IsEnableComboBox}" 
+                                                     SelectedItem="{Binding SelectedAddress, Mode=OneWayToSource}" 
+                                                     Text="{Binding Path=Text, Delay=200, Mode=OneWayToSource}" 
+                                                     MinWidth="100" IsEditable="True" 
+                                                     ItemsSource="{Binding Path=Addresses}" 
+                                                     IsDropDownOpen="{Binding IsDropDownOpen,Mode=TwoWay}"
+                                                     xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                                                     >
+                <ComboBox.Resources>
+                    <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">0</sys:Double>
+                </ComboBox.Resources>
             </ComboBox>
         </StackPanel>
     </DockPanel>
