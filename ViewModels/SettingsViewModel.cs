@@ -29,9 +29,9 @@ namespace WeatherApp.ViewModels
         private SettingsCommand okCommand;
         private SettingsCommand cancleCommand;
 
-
+        public SettingsCommand CloseWindowCommand { get; private set; }
         public event PropertyChangedEventHandler PropertyChanged;
-
+        
         public string Text
         {
             get
@@ -42,7 +42,8 @@ namespace WeatherApp.ViewModels
             set
             {
                 text = value;
-                GetNewAddresses(text);
+                if (text != SelectedAddress?.ToString())
+                    OnPropertyChanged();
             }
         }
 
@@ -56,19 +57,11 @@ namespace WeatherApp.ViewModels
             }
         }
 
-        public ICommand CancleCommand
-        {
-            get
-            {
-                if (cancleCommand == null)
-                    cancleCommand = new SettingsCommand(CloseWindow, CanCloseWindow);
-                return cancleCommand;
-            }
-        }
+     
 
-        private void CloseWindow(object parametr)
+        private void CloseWindow(Window window)
         {
-            CloseWindow(parametr);
+            
         }
 
         private bool CanCloseWindow(object parametr)
@@ -87,8 +80,7 @@ namespace WeatherApp.ViewModels
         {
             try
             {
-                //SelectedAddress.
-                //configEditor.SetLoaction(new);
+                configEditor.SetLoaction(selectedAddress.Location);
             }
             catch (Exception)
             {
@@ -155,7 +147,11 @@ namespace WeatherApp.ViewModels
 
         public bool IsDropDownOpen
         {
-            get { return isDropDownOpen; }
+            get
+            {
+                return isDropDownOpen;
+            }
+
             set
             {
                 isDropDownOpen = value;
@@ -167,11 +163,10 @@ namespace WeatherApp.ViewModels
         public SettingsViewModel(IGeocodingService geocodingService)
         {
             this.geocodingService = geocodingService;
-            var location = configEditor.GetLoaction();
-            if (location != null)
-                IsEnableComboBox = false;
+            //var location = configEditor.GetLoaction();
+            //if (location != null)
+                IsCheckBoxChecked = true;
         }
-
 
         private async void GetNewAddresses(string address)
         {
@@ -191,6 +186,9 @@ namespace WeatherApp.ViewModels
         public void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+            if (propertyName == nameof(Text))
+                GetNewAddresses(text);
         }
     }
 }
