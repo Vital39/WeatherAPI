@@ -19,20 +19,20 @@ namespace WeatherApp.ViewModels.MainViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         private BusinessWeatherForecast forecast;
         private SettingsCommand command;
-
-        //public SettingsCommand Command  
-        //{
-        //    get
-        //    {
-        //        if (command == null)
-        //            command = new SettingsCommand();
-        //        return command;
-        //    }
-        //    set
-        //    {
-        //        command = value;
-        //    }
-        //}
+        private AppRouter appRouter = new AppRouter();
+        public SettingsCommand Command
+        {
+            get
+            {
+                if (command == null)
+                    command = new SettingsCommand(appRouter.OpenSettings);
+                return command;
+            }
+            set
+            {
+                command = value;
+            }
+        }
 
 
         public BusinessWeatherForecast Forecast
