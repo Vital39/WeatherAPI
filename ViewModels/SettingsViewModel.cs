@@ -27,9 +27,7 @@ namespace WeatherApp.ViewModels
         private FormattedAddress selectedAddress;
 
         private SettingsCommand okCommand;
-        private SettingsCommand cancleCommand;
 
-        public SettingsCommand CloseWindowCommand { get; private set; }
         public event PropertyChangedEventHandler PropertyChanged;
         
         public string Text
@@ -57,18 +55,6 @@ namespace WeatherApp.ViewModels
             }
         }
 
-     
-
-        private void CloseWindow(Window window)
-        {
-            
-        }
-
-        private bool CanCloseWindow(object parametr)
-        {
-            return true;
-        }
-
         private bool CanSetConfig(object parametr)
         {
             if (selectedAddress == null)
@@ -78,14 +64,7 @@ namespace WeatherApp.ViewModels
 
         private void SetConfig(object parameter)
         {
-            try
-            {
-                configEditor.SetLoaction(selectedAddress.Location);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            configEditor.SetLoaction(selectedAddress.Location);
         }
 
         public bool IsCheckBoxChecked
@@ -174,7 +153,8 @@ namespace WeatherApp.ViewModels
                 return;
             try
             {
-                Addresses = await geocodingService.GetFormattedAddressAsync(address);
+                var addresses = await geocodingService.GetFormattedAddressAsync(address);
+                Addresses = addresses.Where(addres => !string.IsNullOrEmpty(addres.CityName) || !string.IsNullOrEmpty(addres.Town)).ToList();
                 IsDropDownOpen = true;
             }
             catch (WeatherApp.Services.LocationIQGeocodingException e)

@@ -8,8 +8,8 @@
 
     <DockPanel LastChildFill="True">
         <WrapPanel DockPanel.Dock="Bottom" HorizontalAlignment="Center">
-            <Button Name="CancleButton" Content="Cancel" IsCancel="True"  />
-            <Button Name="OkButton" Content="Ok" />
+            <Button Name="CancleButton" Content="Cancle"/>
+            <Button Name="OkButton" Content="Ok" Command="{Binding OkCommand}"/>
         </WrapPanel>
 
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" >
