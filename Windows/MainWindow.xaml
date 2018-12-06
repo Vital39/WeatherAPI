@@ -8,7 +8,7 @@
         Title="MainWindow" Height="570" Width="517.797">
     <Grid>
         <StackPanel>
-            <ComboBox />
+            <Button Click="Button_Click" />
             <Label Name="Datelb" Content="{Binding Forecast.Date}" HorizontalAlignment="Center"/>
             <Label Name="Timelb" HorizontalAlignment="Center" Content="{Binding Forecast.Time}"/>
             <Grid>
