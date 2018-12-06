@@ -11,17 +11,19 @@ namespace WeatherApp.Services
 {
     public class ConfigEditor
     {
-        private const string locationKey = "location";
         public void SetLoaction(Location location)
-        {
-            ConfigurationManager.AppSettings[locationKey] = JsonConvert.SerializeObject(location);
-
-            Properties.Settings.Default.location = locationKey;
+        {   
+            if(location==null)
+            {
+                Properties.Settings.Default.Location = null;
+                return;
+            }
+            Properties.Settings.Default.Location = JsonConvert.SerializeObject(location);
             Properties.Settings.Default.Save();
         }
         public Location GetLoaction()
         {
-            var data = ConfigurationManager.AppSettings[locationKey];
+            var data = Properties.Settings.Default.Location;
             if (data == null)
                 return null;
             Location location = JsonConvert.DeserializeObject<Location>(data);
