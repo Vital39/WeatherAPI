@@ -19,7 +19,7 @@ namespace WeatherApp.ViewModels.MainViewModels
             {
                 Date = formatter.GetNumberAndMonth(weatherForecast.CurrentForecast.Time),
                 Time = formatter.GetTime(weatherForecast.CurrentForecast.Time),
-                Temperature = weatherForecast.CurrentForecast.Temperature.ToString(),
+                Temperature = ((weatherForecast.CurrentForecast.Temperature-32)*5/9).ToString(),
                 WindSpeed = weatherForecast.CurrentForecast.WindSpeed.ToString(),
                 CloudCover = weatherForecast.CurrentForecast.Summary,
                 Icon = weatherForecast.WeekForecast.Icon + ".png",
