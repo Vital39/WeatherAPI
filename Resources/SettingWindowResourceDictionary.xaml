@@ -4,8 +4,9 @@
 
     <LinearGradientBrush x:Key="backgroundGradient">
         <GradientStopCollection>
-            <GradientStop Color="#FF8FE6EA" Offset="0" />
-            <GradientStop Color="#FF0936CF" Offset="1" />
+            <GradientStop Color="#FF94EDF1" Offset="0" />
+            <GradientStop Color="#FF36C4F9" Offset="0.5" />
+            <GradientStop Color="#FF0B4FB2" Offset="1" />
         </GradientStopCollection>
     </LinearGradientBrush>
 </ResourceDictionary>
